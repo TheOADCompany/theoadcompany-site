@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The OAD Company</title>
+  <meta name="description" content="The OAD Company is a human-centred innovation studio building FocusBridge, FinTree, OAD Trading and melanin-focused wellness products." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  :root { --bg:#05060a; --surface:#0b0d13; --accent:#f5f5f7; --accent-soft:#1b1d25; --primary:#f5f5f7; --muted:#a1a1aa; --border:#1f212b; --radius-xl:28px; --radius-lg:20px; --radius-pill:999px; --shadow-soft:0 20px 60px rgba(0,0,0,.65); --max-width:1120px;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);color:var(--primary);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .page{min-height:100vh;display:flex;flex-direction:column;}
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:linear-gradient(to bottom,rgba(5,6,10,.95),rgba(5,6,10,.8),transparent);border-bottom:1px solid rgba(148,163,184,.15);}
+  .nav{max-width:var(--max-width);margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:12px;}
+  .logo-mark{width:28px;height:28px;border-radius:14px;background:radial-gradient(circle at 20% 0,#38bdf8,#6366f1 40%,#a855f7 75%);box-shadow:0 10px 30px rgba(15,23,42,.9);}
+  .logo-sub{font-size:10px;color:var(--muted);text-transform:none;letter-spacing:0;}
+  .nav-links{display:flex;gap:18px;font-size:13px;color:var(--muted);}
+  .nav-links a{padding:6px 10px;border-radius:999px;transition:background .2s,color .2s;}
+  .nav-links a:hover{background:rgba(148,163,184,.14);color:var(--primary);}
+  .nav-cta{padding:8px 14px;border-radius:999px;border:1px solid rgba(148,163,184,.35);font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px;box-shadow:0 0 0 1px rgba(15,23,42,.9);background:linear-gradient(to bottom,#0b1120,#020617);}
+  .nav-cta span.arrow{font-size:11px;transform:translateY(0.5px);}
+  main{flex:1;}
+  .hero{max-width:var(--max-width);margin:0 auto;padding:64px 20px 32px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:48px;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;border:1px solid rgba(148,163,184,.4);background:linear-gradient(to right,rgba(15,23,42,.85),rgba(15,23,42,.3));font-size:11px;color:var(--muted);margin-bottom:18px;}
+  .eyebrow-dot{width:6px;height:6px;border-radius:999px;background:radial-gradient(circle at 20% 0,#4ade80,#22c55e 50%,#16a34a 100%);box-shadow:0 0 0 3px rgba(34,197,94,.25);}
+  .hero h1{font-size:clamp(32px,5vw,44px);line-height:1.05;letter-spacing:-0.04em;margin-bottom:18px;}
+  .hero-gradient{background:linear-gradient(135deg,#e5e7eb,#a5b4fc,#f97316);-webkit-background-clip:text;color:transparent;}
+  .hero p{font-size:15px;line-height:1.7;color:var(--muted);max-width:520px;margin-bottom:26px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
+  .btn-primary{padding:11px 20px;border-radius:999px;border:none;background:linear-gradient(135deg,#4f46e5,#6366f1,#22c55e);box-shadow:var(--shadow-soft);font-size:13px;font-weight:500;color:#0b1120;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+  .btn-secondary{padding:10px 16px;border-radius:999px;border:1px solid rgba(148,163,184,.4);font-size:13px;color:var(--primary);background:rgba(15,23,42,.7);display:inline-flex;align-items:center;gap:8px;cursor:pointer;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:11px;color:var(--muted);}
+  .hero-meta-item{display:flex;align-items:center;gap:6px;}
+  .hero-meta-dot{width:5px;height:5px;border-radius:999px;background:#4ade80;}
+  .hero-panel{border-radius:var(--radius-xl);border:1px solid var(--border);padding:18px 18px 16px;background:radial-gradient(circle at 0 0,#0b1120 0,#020617 55%,#020617 100%);box-shadow:var(--shadow-soft);position:relative;overflow:hidden;}
+  .hero-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;font-size:11px;}
+  .chip{padding:5px 9px;border-radius:999px;background:rgba(15,23,42,.9);border:1px solid rgba(148,163,184,.45);color:var(--muted);display:inline-flex;align-items:center;gap:6px;}
+  .chip-dot{width:7px;height:7px;border-radius:999px;background:radial-gradient(circle at 20% 0,#38bdf8,#6366f1 55%,#a855f7 100%);}
+  .hero-panel-title{font-size:13px;font-weight:500;margin-bottom:8px;}
+  .hero-panel-sub{font-size:11px;color:var(--muted);margin-bottom:16px;}
+  .hero-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:11px;}
+  .hero-card{border-radius:18px;border:1px solid rgba(51,65,85,.9);background:radial-gradient(circle at 0 0,#111827,rgba(15,23,42,.2));padding:10px 11px;display:flex;flex-direction:column;gap:4px;}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;font-size:10px;}
+  .badge-green{background:rgba(22,163,74,.16);color:#bbf7d0;border:1px solid rgba(34,197,94,.6);}
+  .badge-amber{background:rgba(217,119,6,.14);color:#fed7aa;border:1px solid rgba(245,158,11,.7);}
+  .badge-sky{background:rgba(56,189,248,.14);color:#bae6fd;border:1px solid rgba(56,189,248,.7);}
+  .badge-violet{background:rgba(129,140,248,.16);color:#e0e7ff;border:1px solid rgba(129,140,248,.75);}
+  .hero-card-title{font-size:11px;font-weight:500;}
+  .hero-card-text{color:var(--muted);font-size:10px;line-height:1.5;}
+  .hero-card-footer{margin-top:4px;font-size:10px;color:#9ca3af;}
+  section{max-width:var(--max-width);margin:0 auto;padding:32px 20px 20px;}
+  .section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px;}
+  .section-heading h2{font-size:18px;letter-spacing:-0.03em;}
+  .section-heading p{font-size:13px;color:var(--muted);max-width:420px;}
+  .tagline{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:6px;}
+  .ventures-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  .venture-card{border-radius:var(--radius-lg);border:1px solid var(--border);padding:16px 16px 14px;background:radial-gradient(circle at 0 0,#020617,#020617 60%,#020617 100%);box-shadow:0 14px 40px rgba(0,0,0,.65);}
+  .venture-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+  .venture-title{font-size:14px;font-weight:500;}
+  .venture-tag{font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid rgba(148,163,184,.45);color:var(--muted);}
+  .venture-body{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;font-size:10px;color:var(--muted);}
+  .pill{padding:4px 8px;border-radius:999px;background:rgba(15,23,42,.9);border:1px solid rgba(31,41,55,.9);}
+  .two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;margin-top:4px;}
+  .list{list-style:none;font-size:12px;color:var(--muted);display:grid;gap:6px;}
+  .list li::before{content:'• ';color:#4ade80;}
+  .founder-card{border-radius:var(--radius-lg);border:1px solid var(--border);padding:18px 16px 16px;background:radial-gradient(circle at 0 0,#020617,#020617 60%,#0b1120 100%);display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;}
+  .avatar{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 20% 0,#38bdf8,#6366f1 45%,#a855f7 80%);box-shadow:0 16px 40px rgba(15,23,42,.9);}
+  .founder-name{font-size:14px;font-weight:500;margin-bottom:4px;}
+  .founder-role{font-size:11px;color:var(--muted);margin-bottom:8px;}
+  .founder-text{font-size:12px;color:var(--muted);line-height:1.7;}
+  .contact-card{border-radius:var(--radius-lg);border:1px solid var(--border);padding:18px 16px 18px;background:radial-gradient(circle at 0 0,#020617,#020617 60%,#020617 100%);display:flex;flex-direction:column;gap:12px;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:12px;color:var(--muted);}
+  .contact-email{padding:8px 14px;border-radius:999px;border:1px solid rgba(148,163,184,.5);background:rgba(15,23,42,.9);font-size:12px;}
+  .contact-note{font-size:11px;color:#6b7280;}
+  footer{max-width:var(--max-width);margin:0 auto;padding:18px 20px 32px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(15,23,42,1);margin-top:32px;}
+  footer span strong{color:#e5e7eb;font-weight:500;}
+  @media (max-width:840px){
+    .hero{grid-template-columns:minmax(0,1fr);padding-top:40px;}
+    .hero-panel{order:-1;}
+    .ventures-grid{grid-template-columns:minmax(0,1fr);}
+    .two-col{grid-template-columns:minmax(0,1fr);}
+    .nav-links{display:none;}
+  }
+  @media (max-width:480px){
+    .hero{padding-top:32px;}
+    .hero h1{font-size:28px;}
+    footer{flex-direction:column;}
+  }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="nav">
+      <a href="#top" class="logo">
+        <div class="logo-mark"></div>
+        <div>
+          <div>THE OAD COMPANY</div>
+          <div class="logo-sub">Human-centred systems studio</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#ventures">Ventures</a>
+        <a href="#approach">Approach</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav-cta">
+        <span>Partner with us</span>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Building calm, intelligent systems for real people
+        </div>
+        <h1>
+          A holding company for <span class="hero-gradient">focus, finance, trade & wellness.</span>
+        </h1>
+        <p>
+          The OAD Company is a human-centred innovation studio. We build tools that make modern life less chaotic – from neuro-inclusive productivity for organisations, to clear personal finance, to African origin products and melanin-focused wellness.
+        </p>
+        <div class="hero-ctas">
+          <a href="#ventures" class="btn-primary">
+            Explore our ventures
+            <span>↓</span>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Talk about a partnership
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            FocusBridge pilot blueprint in progress
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            Export & product R&D underway
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Ventures snapshot">
+        <div class="hero-chip-row">
+          <div class="chip">
+            <span class="chip-dot"></span>
+            Behavioural clarity, not surveillance
+          </div>
+          <div class="chip">
+            <span class="chip-dot"></span>
+            Africa ↔ UK execution bridge
+          </div>
+        </div>
+        <div class="hero-panel-title">The OAD portfolio at a glance</div>
+        <div class="hero-panel-sub">
+          Four connected pillars, one principle: design systems that respect people, protect attention, and unlock better futures.
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="badge badge-green">FocusBridge · Blueprint</div>
+            <div class="hero-card-title">Neuro-inclusive productivity layer</div>
+            <div class="hero-card-text">
+              Behavioural-clarity platform for NHS, universities, enterprises and public institutions. Built to stabilise rhythms, not score humans.
+            </div>
+            <div class="hero-card-footer">Pilot-ready architecture · Sectioned Master Blueprint</div>
+          </div>
+          <div class="hero-card">
+            <div class="badge badge-amber">FinTree · Concept</div>
+            <div class="hero-card-title">Personal finance & bills companion</div>
+            <div class="hero-card-text">
+              AI-assisted money dashboard designed for real households: clear bills, fewer surprises, simple paths to stability and growth.
+            </div>
+            <div class="hero-card-footer">On hold while FocusBridge leads</div>
+          </div>
+          <div class="hero-card">
+            <div class="badge badge-sky">OAD Trading · In development</div>
+            <div class="hero-card-title">Africa-origin exports to the UK</div>
+            <div class="hero-card-text">
+              Shea butter, dried hibiscus and everyday heritage products – built on compliant, ethical supply chains from Africa to the UK and EU.
+            </div>
+            <div class="hero-card-footer">DCTS route · Compliance & supplier mapping</div>
+          </div>
+          <div class="hero-card">
+            <div class="badge badge-violet">Skin & Wellness · R&D</div>
+            <div class="hero-card-title">Made-for-melanin formulations</div>
+            <div class="hero-card-text">
+              High-performance bodycare and routines that respect melanin-rich skin, using evidence-led ingredients and simple, sustainable rituals.
+            </div>
+            <div class="hero-card-footer">Prototype stage · Safety & efficacy first</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="ventures">
+      <div class="tagline">Ventures</div>
+      <div class="section-heading">
+        <h2>One company. Four connected build tracks.</h2>
+        <p>
+          Each venture is at a different stage — but they all serve the same direction: calmer minds, clearer money, dignified trade and grounded wellness.
+        </p>
+      </div>
+
+      <div class="ventures-grid">
+        <article class="venture-card">
+          <div class="venture-header">
+            <div class="venture-title">FocusBridge</div>
+            <div class="venture-tag">Blueprint in progress</div>
+          </div>
+          <p class="venture-body">
+            A behavioural-clarity platform for neuro-inclusive workplaces. FocusBridge helps institutions stabilise rhythms, reduce overload and design working patterns that respect human attention.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Neuro-inclusive productivity</span>
+            <span class="pill">NHS · HigherEd · Enterprise · LocalGov</span>
+            <span class="pill">Non-surveillance doctrine</span>
+          </div>
+        </article>
+
+        <article class="venture-card">
+          <div class="venture-header">
+            <div class="venture-title">FinTree</div>
+            <div class="venture-tag">Concept, parked</div>
+          </div>
+          <p class="venture-body">
+            A personal finance and bills companion aimed at everyday families — turning scattered direct debits, subscriptions and arrears into one calm, honest view and a simple action path.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Bill & subscription intelligence</span>
+            <span class="pill">Low-stress money journeys</span>
+            <span class="pill">Future relaunch under OAD</span>
+          </div>
+        </article>
+
+        <article class="venture-card">
+          <div class="venture-header">
+            <div class="venture-title">OAD Trading</div>
+            <div class="venture-tag">In development</div>
+          </div>
+          <p class="venture-body">
+            Exporting shea butter, dried hibiscus and other African origin products into the UK under fair, compliant structures – with a focus on everyday products, not just luxury niches.
+          </p>
+          <div class="pill-row">
+            <span class="pill">DCTS access for developing countries</span>
+            <span class="pill">Quality & safety compliance</span>
+            <span class="pill">Amazon & TikTok retail routes</span>
+          </div>
+        </article>
+
+        <article class="venture-card">
+          <div class="venture-header">
+            <div class="venture-title">Skin & Wellness</div>
+            <div class="venture-tag">R&D</div>
+          </div>
+          <p class="venture-body">
+            A future line of bodycare and wellness products tailored for melanin-rich skin and busy modern lives – built around simple routines, rich but safe ingredients, and visible results.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Melanin-focused formulations</span>
+            <span class="pill">Evidence-led routines</span>
+            <span class="pill">Prototype testing</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="tagline">Approach</div>
+      <div class="section-heading">
+        <h2>Quietly ambitious. Deeply human.</h2>
+        <p>
+          The OAD Company is intentionally small, focused and long-term. We don’t chase noise. We build infrastructure – the kind that quietly improves how people live and work.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <ul class="list">
+            <li><strong>Human before metrics.</strong> No surveillance, no attention-mining. We design systems that protect cognition instead of draining it.</li>
+            <li><strong>Calm as a feature.</strong> Interfaces, processes and rituals are built to reduce friction and decision fatigue.</li>
+            <li><strong>Africa ↔ UK bridge.</strong> We treat trade and knowledge as two-way streets, not extractive pipelines.</li>
+            <li><strong>Research-driven thinking.</strong> Each venture is backed by structured research, not just intuition.</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="list">
+            <li><strong>Modular by design.</strong> Ventures can stand alone or interlock into a wider ecosystem.</li>
+            <li><strong>Ethics baked in.</strong> From FocusBridge’s non-intrusion doctrine to fair trade sourcing, principle is not an afterthought.</li>
+            <li><strong>Slow, strong foundations.</strong> We are comfortable with “coming soon” if it means building correctly.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="founder">
+      <div class="tagline">Founder</div>
+      <div class="section-heading">
+        <h2>Built from lived work, not theory alone.</h2>
+        <p>
+          The OAD Company sits at the intersection of international business, fintech operations, IT support, and hands-on care work. That mix shapes how we design products and systems.
+        </p>
+      </div>
+
+      <article class="founder-card">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="founder-name">Daniel – Founder, The OAD Company</div>
+          <div class="founder-role">Innovation & Business Systems-focused · UK-based</div>
+          <p class="founder-text">
+            Daniel’s background spans merchant services and POS operations, IT support, and frontline support work in the UK, underpinned by a Master’s in International Business with Advanced Research.
+            <br><br>
+            He builds OAD ventures with a simple belief: if we respect how people’s minds, money and bodies actually work, we can design systems that make life meaningfully lighter – not just more “digital”.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact">
+      <div class="tagline">Contact</div>
+      <div class="section-heading">
+        <h2>Partner, pilot or just talk.</h2>
+        <p>
+          Whether you’re exploring a FocusBridge pilot, interested in African origin products, or simply want to follow what we’re building, we’re open to thoughtful conversations.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-row">
+          <span>Write to us at:</span>
+          <a href="mailto:info@theoadcompany.com" class="contact-email">info@theoadcompany.com</a>
+        </div>
+        <div class="contact-note">
+          For now we keep things simple – a direct inbox, considered replies, and selective partnerships. As our ventures mature, this will expand into dedicated product portals.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <strong>The OAD Company</strong> · All rights reserved.</span>
+    <span>Calm systems for focus, finance, trade & wellness.</span>
+  </footer>
+</div>
+</body>
+</html>
